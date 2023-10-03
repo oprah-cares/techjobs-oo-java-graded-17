@@ -29,7 +29,7 @@ public class JobTest {
     }
 
     @Test // #3 - Test for equality
-    public void testJobForEquality () {
+    public void testJobsForEquality () {
         Job jobA = new Job("Product tester",
                 new Employer("ACME"),
                 new Location("Desert"),
@@ -66,5 +66,16 @@ public class JobTest {
                 "Core Competency: Persistence" + System.lineSeparator();
         assertEquals(expected, result);
     }
+    @Test //#6 - Handles empty fields
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job("Software Developer", new Employer("MasterCard"),
+                new Location("uR mom"), new PositionType("Develop"),
+                new CoreCompetency(null));
 
+        // string of jo oject
+        String toString = job.toString();
+
+        // Assert that the string contains the label for the empty field, followed by "Data not available".
+        assertTrue(toString.contains("Core Competency: Data not available"));
+    }
 }

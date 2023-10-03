@@ -90,7 +90,7 @@ public class Job {
 
     @Override
     public String toString() {
-        String defaultOutput = "Data not available.";
+        String defaultOutput = "Data not available";
         StringBuilder result = new StringBuilder();
 
         // ID
